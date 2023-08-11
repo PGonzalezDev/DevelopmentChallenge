@@ -132,5 +132,77 @@ namespace DevelopmentChallenge.Data.Tests
                 resumen
             );
         }
+
+        [TestCase]
+        public void TestResumenListaTiposVariosEnCastellano()
+        {
+            var formas = new List<FormaGeometrica>
+            {
+                new Cuadrado(5M),
+                new Circulo(3M),
+                new TrianguloEquilatero(4M),
+                new Cuadrado(2M),
+                new TrianguloEquilatero(9M),
+                new Circulo(2.75M),
+                new Rectangulo(5M, 10M),
+                new TrianguloEquilatero(4.2M),
+                new Rectangulo(6M, 10M)
+
+            };
+            var resumen = FormaGeometrica.Imprimir(formas, IdiomaEnum.Castellano);
+
+
+            Assert.AreEqual(
+                "<h1>Reporte de Formas</h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>2 Círculos | Area 13,01 | Perimetro 18,06 <br/>3 Triángulos | Area 49,64 | Perimetro 51,6 <br/>2 Rectángulos | Area 110 | Perimetro 62 <br/>TOTAL:<br/>9 formas Perimetro 159,66 Area 201,65",
+                resumen);
+        }
+
+        [TestCase]
+        public void TestResumenListaTiposVariosEnIngles()
+        {
+            var formas = new List<FormaGeometrica>
+            {
+                new Cuadrado(5M),
+                new Circulo(3M),
+                new TrianguloEquilatero(4M),
+                new Cuadrado(2M),
+                new TrianguloEquilatero(9M),
+                new Circulo(2.75M),
+                new Rectangulo(5M, 10M),
+                new TrianguloEquilatero(4.2M),
+                new Rectangulo(6M, 10M)
+
+            };
+            var resumen = FormaGeometrica.Imprimir(formas, IdiomaEnum.Ingles);
+
+
+            Assert.AreEqual(
+                "<h1>Shapes report</h1>2 Squares | Area 29 | Perimeter 28 <br/>2 Circles | Area 13,01 | Perimeter 18,06 <br/>3 Triangles | Area 49,64 | Perimeter 51,6 <br/>2 Rectangles | Area 110 | Perimeter 62 <br/>TOTAL:<br/>9 shapes Perimeter 159,66 Area 201,65",
+                resumen);
+        }
+
+        [TestCase]
+        public void TestResumenListaTiposVariosEnItaliano()
+        {
+            var formas = new List<FormaGeometrica>
+            {
+                new Cuadrado(5M),
+                new Circulo(3M),
+                new TrianguloEquilatero(4M),
+                new Cuadrado(2M),
+                new TrianguloEquilatero(9M),
+                new Circulo(2.75M),
+                new Rectangulo(5M, 10M),
+                new TrianguloEquilatero(4.2M),
+                new Rectangulo(6M, 10M)
+
+            };
+            var resumen = FormaGeometrica.Imprimir(formas, IdiomaEnum.Italiano);
+
+
+            Assert.AreEqual(
+                "<h1>Relazione sulle forme</h1>2 Piazze | Area 29 | Perimetro 28 <br/>2 Cerchi | Area 13,01 | Perimetro 18,06 <br/>3 Triangoli | Area 49,64 | Perimetro 51,6 <br/>2 Rettangoli | Area 110 | Perimetro 62 <br/>TOTALE:<br/>9 forme Perimetro 159,66 Area 201,65",
+                resumen);
+        }
     }
 }
