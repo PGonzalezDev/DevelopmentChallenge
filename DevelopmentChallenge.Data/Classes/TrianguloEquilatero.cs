@@ -1,12 +1,13 @@
 ﻿using DevelopmentChallenge.Data.Enums;
 using DevelopmentChallenge.Data.Helpers;
+using DevelopmentChallenge.Data.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace DevelopmentChallenge.Data.Classes
 {
-    public class TrianguloEquilatero : FormaGeometrica
+    public class TrianguloEquilatero : FormaGeometrica, IResumible
     {
         private readonly decimal _lado;
 
@@ -27,7 +28,7 @@ namespace DevelopmentChallenge.Data.Classes
             return _lado * 3;
         }
 
-        public static string ObtenerLinea(IEnumerable<FormaGeometrica> formas, IdiomaEnum idioma)
+        public string ObtenerLinea(IEnumerable<FormaGeometrica> formas, IdiomaEnum idioma)
         {
             if (formas != null && formas.Any())
             {

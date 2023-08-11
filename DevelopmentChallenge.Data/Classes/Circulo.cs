@@ -1,5 +1,6 @@
 ﻿using DevelopmentChallenge.Data.Enums;
 using DevelopmentChallenge.Data.Helpers;
+using DevelopmentChallenge.Data.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DevelopmentChallenge.Data.Classes
 {
-    public class Circulo : FormaGeometrica
+    public class Circulo : FormaGeometrica, IResumible
     {
         private readonly decimal _diametro;
         private decimal _radio { get { return _diametro / 2; } }
@@ -30,7 +31,7 @@ namespace DevelopmentChallenge.Data.Classes
             return (decimal)Math.PI * _diametro;
         }
 
-        public static string ObtenerLinea(IEnumerable<FormaGeometrica> formas, IdiomaEnum idioma)
+        public string ObtenerLinea(IEnumerable<FormaGeometrica> formas, IdiomaEnum idioma)
         {
             if (formas != null && formas.Any())
             {

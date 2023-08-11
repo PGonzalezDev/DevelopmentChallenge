@@ -54,6 +54,7 @@
     <Compile Include="Enums\FormaEnum.cs" />
     <Compile Include="Enums\IdiomaEnum.cs" />
     <Compile Include="Helpers\LanguageHelper.cs" />
+    <Compile Include="Interfaces\IResumible.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using DevelopmentChallenge.Data.Enums;
 using DevelopmentChallenge.Data.Helpers;
+using DevelopmentChallenge.Data.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,15 +24,15 @@ namespace DevelopmentChallenge.Data.Classes
 
             sb.Append(LanguageHelper.ObtenerHeader(idioma));
 
-            var cuadrados = formas.Where(x => x is Cuadrado);
-            var circulos = formas.Where(x => x is Circulo);
-            var triangulos = formas.Where(x => x is TrianguloEquilatero);
-            var rectangulos = formas.Where(x => x is Rectangulo);
+            var formasAgrupadas = formas.GroupBy(x => x.GetType());
 
-            sb.Append(Cuadrado.ObtenerLinea(cuadrados, idioma));
-            sb.Append(Circulo.ObtenerLinea(circulos, idioma));
-            sb.Append(TrianguloEquilatero.ObtenerLinea(triangulos, idioma));
-            sb.Append(Rectangulo.ObtenerLinea(rectangulos, idioma));
+            foreach (var grupo in formasAgrupadas)
+            {
+                var firstResumible = grupo.First() as IResumible;
+                var resumen = firstResumible.ObtenerLinea(grupo.ToList(), idioma);
+
+                sb.Append(resumen);
+            }
 
             Totales totales = new Totales()
             {

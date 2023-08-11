@@ -1,11 +1,12 @@
 ﻿using DevelopmentChallenge.Data.Enums;
 using DevelopmentChallenge.Data.Helpers;
+using DevelopmentChallenge.Data.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace DevelopmentChallenge.Data.Classes
 {
-    public class Rectangulo : FormaGeometrica
+    public class Rectangulo : FormaGeometrica, IResumible
     {
         private readonly decimal _largo;
         private readonly decimal _ancho;
@@ -28,7 +29,7 @@ namespace DevelopmentChallenge.Data.Classes
             return 2 * (_largo + _ancho);
         }
 
-        public static string ObtenerLinea(IEnumerable<FormaGeometrica> formas, IdiomaEnum idioma)
+        public string ObtenerLinea(IEnumerable<FormaGeometrica> formas, IdiomaEnum idioma)
         {
             if (formas != null && formas.Any())
             {
