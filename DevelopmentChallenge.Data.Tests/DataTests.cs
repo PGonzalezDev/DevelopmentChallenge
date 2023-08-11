@@ -28,6 +28,15 @@ namespace DevelopmentChallenge.Data.Tests
         }
 
         [TestCase]
+        public void TestResumenListaVaciaFormasEnItaliano()
+        {
+            Assert.AreEqual(
+                "<h1>Elenco vuoto di forme!</h1>",
+                FormaGeometrica.Imprimir(new List<FormaGeometrica>(), IdiomaEnum.Italiano)
+            );
+        }
+
+        [TestCase]
         public void TestResumenListaConUnCuadrado()
         {
             var cuadrados = new List<FormaGeometrica> { new Cuadrado(5M) };
