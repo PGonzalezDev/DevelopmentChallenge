@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace DevelopmentChallenge.Data.Classes
 {
-    public class TrianguloEquilatero : FormaGeometrica, IResumible
+    public class TrianguloEquilatero : FormaGeometrica
     {
         private readonly decimal _lado;
 
@@ -26,23 +26,6 @@ namespace DevelopmentChallenge.Data.Classes
         public override decimal CalcularPerimetro()
         {
             return _lado * 3;
-        }
-
-        public string ObtenerLinea(IEnumerable<FormaGeometrica> formas, IdiomaEnum idioma)
-        {
-            if (formas != null && formas.Any())
-            {
-                Totales totales = new Totales()
-                {
-                    Cantidad = formas.Count(),
-                    Perimetros = formas.Sum(x => x.CalcularPerimetro()),
-                    Areas = formas.Sum(x => x.CalcularArea())
-                };
-
-                return LanguageHelper.ObtenerLineaTraducida(totales, FormaEnum.TrianguloEquilatero, idioma);
-            }
-
-            return string.Empty;
         }
     }
 }

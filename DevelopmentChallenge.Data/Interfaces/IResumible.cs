@@ -10,6 +10,6 @@ namespace DevelopmentChallenge.Data.Interfaces
 {
     internal interface IResumible
     {
-        string ObtenerLinea(IEnumerable<FormaGeometrica> formas, IdiomaEnum idioma);
+        string ObtenerLinea(IEnumerable<FormaGeometrica> formas, FormaEnum formaEnum, IdiomaEnum idioma);
     }
 }

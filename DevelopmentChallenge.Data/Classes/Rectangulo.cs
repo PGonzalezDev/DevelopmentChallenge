@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace DevelopmentChallenge.Data.Classes
 {
-    public class Rectangulo : FormaGeometrica, IResumible
+    public class Rectangulo : FormaGeometrica
     {
         private readonly decimal _largo;
         private readonly decimal _ancho;
@@ -27,23 +27,6 @@ namespace DevelopmentChallenge.Data.Classes
         public override decimal CalcularPerimetro()
         {
             return 2 * (_largo + _ancho);
-        }
-
-        public string ObtenerLinea(IEnumerable<FormaGeometrica> formas, IdiomaEnum idioma)
-        {
-            if (formas != null && formas.Any())
-            {
-                Totales totales = new Totales()
-                {
-                    Cantidad = formas.Count(),
-                    Perimetros = formas.Sum(x => x.CalcularPerimetro()),
-                    Areas = formas.Sum(x => x.CalcularArea())
-                };
-
-                return LanguageHelper.ObtenerLineaTraducida(totales, FormaEnum.Rectangulo, idioma);
-            }
-
-            return string.Empty;
         }
     }
 }

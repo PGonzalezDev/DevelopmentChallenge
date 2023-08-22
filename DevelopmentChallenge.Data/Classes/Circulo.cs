@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DevelopmentChallenge.Data.Classes
 {
-    public class Circulo : FormaGeometrica, IResumible
+    public class Circulo : FormaGeometrica
     {
         private readonly decimal _diametro;
         private decimal _radio { get { return _diametro / 2; } }
@@ -29,23 +29,6 @@ namespace DevelopmentChallenge.Data.Classes
         public override decimal CalcularPerimetro()
         {
             return (decimal)Math.PI * _diametro;
-        }
-
-        public string ObtenerLinea(IEnumerable<FormaGeometrica> formas, IdiomaEnum idioma)
-        {
-            if (formas != null && formas.Any())
-            {
-                Totales totales = new Totales()
-                {
-                    Cantidad = formas.Count(),
-                    Perimetros = formas.Sum(x => x.CalcularPerimetro()),
-                    Areas = formas.Sum(x => x.CalcularArea())
-                };
-
-                return LanguageHelper.ObtenerLineaTraducida(totales, FormaEnum.Circulo, idioma);
-            }
-
-            return string.Empty;
         }
     }
 }
